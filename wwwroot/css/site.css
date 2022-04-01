@@ -1,0 +1,107 @@
+* {
+    box-sizing: border-box;
+    font-family: Roboto, 'Segoe UI', Tahoma, sans-serif;
+}
+
+.container {
+    height: auto;
+    width: 400px;
+    padding: 24px;
+    border-radius: 32px;
+    box-shadow: 0 0 12px #ddd;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px;
+    margin: 5px 0 16px 0;
+    display: inline-block;
+    border: none;
+    border-radius: 16px;
+    box-shadow: inset 0 0 8px 0px #f1f1f1;
+}
+
+    input[type=text]:focus, input[type=password]:focus {
+        background-color: #f1f1f1;
+        outline: none;
+    }
+
+hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+
+.registerbtn {
+    background-color: #43c9a8;
+    color: white;
+    padding: 14px 14px;
+    border: none;
+    cursor: pointer;
+    width: 40%;
+    opacity: 0.8;
+    border-radius: 16px;
+    margin-top: 24px;
+    margin-right: auto;
+    margin-bottom: 0px;
+    margin-left: auto;
+    display: block;
+}
+
+    .registerbtn:hover {
+        opacity: 1;
+    }
+
+a {
+    color: #43c9a8;
+}
+
+p {
+    font-size: 12px;
+    text-align: center;
+    color: #ccc;
+}
+
+.signin {
+    background-color: #f1f1f1;
+    text-align: center;
+}
+
+h1 {
+    color: #a1a1a1;
+}
+
+label {
+    color: #a1a1a1;
+}
+
+::-webkit-input-placeholder {
+    color: #ddd;
+}
+
+.exitButton {
+    position: absolute;
+    border-radius: 24px;
+    padding: 0px 15px;
+    background-color: #43c9a8;
+    top: -3%;
+    left: 95%;
+    position: absolute;
+    box-shadow: 0 0 12px #ddd;
+    opacity: 0.8;
+}
+
+    .exitButton:hover {
+        opacity: 1;
+    }
+
+    .exitButton p {
+        color: #ffffff;
+        font-weight: 700;
+        font-size: 14px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
