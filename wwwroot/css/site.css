@@ -42,7 +42,7 @@ hr {
     border: none;
     cursor: pointer;
     width: 40%;
-    opacity: 0.8;
+    opacity: 0.6;
     border-radius: 16px;
     margin-top: 24px;
     margin-right: auto;
@@ -99,7 +99,7 @@ h1 {
     left: 95%;
     position: absolute;
     box-shadow: 0 0 12px #ddd;
-    opacity: 0.8;
+    opacity: 0.6;
 }
 
     .exitButton:hover {
