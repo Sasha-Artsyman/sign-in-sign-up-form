@@ -15,29 +15,31 @@
 
             <div class="checkbox">
                 <label class="checkbox-sign">
-                    <input type="checkbox">
+                    <input type="checkbox"  onclick="checkFunc()">
                     <span class="checkbox-sign-switch" data-label-on="Sign up" data-label-off="Sign in"></span>
                 </label>
             </div>
 
-            <div class="label0">
+            <div id="label0">
                 <label for="name"><b>USERNAME</b></label>
                 <input type="text" placeholder="Enter username..." name="name" required>
             </div>
 
-            <div class="label1">
+            <div id="label1">
                 <label for="password"><b>PASSWORD</b></label>
                 <input type="password" placeholder="Enter password..." name="password" required>
             </div>
 
-            <div class="label2">
+            <div id="label2">
                 <label for="confirmPassword"><b>PASSWORD</b></label>
                 <input type="password" placeholder="Confirm password..." name="confirmPassword" required>
             </div>
 
-            <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+            <div id="termsPrivacy">
+                <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+            </div>
+            
             <button type="submit" class="registerbtn">SIGN IN</button>
-
         </div>
     </form>
 
@@ -87,6 +89,30 @@
             const password = form.elements["password"].value;
             createProduct(name, password);
         });
+        
+        // настройки отображения
+        function checkFunc() {
+            var label2 = document.getElementById('label2');
+            if (label2.style.display === "none") {
+                label2.style.display = "block";
+            } else {
+                label2.style.display = "none";
+            }
+
+            var termsPrivacy = document.getElementById('termsPrivacy');
+            if (termsPrivacy.style.display === "none") {
+                termsPrivacy.style.display = "block";
+            } else {
+                termsPrivacy.style.display = "none";
+            }
+
+            var registerbtn = document.getElementById('registerbtn');
+            if (registerbtn.textContent === "SIGN IN") {
+                registerbtn.textContent = "SIGN UP";
+            } else {
+                registerbtn.textContent = "SIGN IN";
+            }
+        }
     </script>
 </body>
 </html>
