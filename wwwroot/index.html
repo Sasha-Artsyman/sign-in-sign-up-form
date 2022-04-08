@@ -15,7 +15,7 @@
 
             <div class="checkbox">
                 <label class="checkbox-sign">
-                    <input type="checkbox"  onclick="checkFunc()">
+                    <input type="checkbox" onclick="checkFunc()">
                     <span class="checkbox-sign-switch" data-label-on="Sign up" data-label-off="Sign in"></span>
                 </label>
             </div>
@@ -38,8 +38,9 @@
             <div id="termsPrivacy">
                 <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
             </div>
-            
-            <button type="submit" class="registerbtn">SIGN IN</button>
+
+            <button id="registerbtn" type="submit" class="registerbtn">SIGN IN</button>
+            <button id="loginbtn" type="submit" class="loginbtn">SIGN UP</button>
         </div>
     </form>
 
@@ -47,22 +48,24 @@
         // добавление
         async function createUser(userName, userPassword, userConfirmPassword) {
 
-            const response = await fetch("api/users", {
-                method: "POST",
-                headers: { "Accept": "application/json", "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    name: userName,
-                    password: userPassword
-                })
-            });
-            if (response.ok === true) {
-                const product = await response.json();
-                reset();
-                document.querySelector("tbody").append(row(product));
-            }
-            else {
-                const error = await response.json();
-                console.log(error.message);
+            if (userPassword == userConfirmPassword) {
+                const response = await fetch("api/users", {
+                    method: "POST",
+                    headers: { "Accept": "application/json", "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        name: userName,
+                        password: userPassword
+                    })
+                });
+                if (response.ok === true) {
+                    const product = await response.json();
+                    reset();
+                    document.querySelector("tbody").append(row(product));
+                }
+                else {
+                    const error = await response.json();
+                    console.log(error.message);
+                }
             }
         }
 
@@ -87,9 +90,10 @@
             const id = form.elements["id"].value;
             const name = form.elements["name"].value;
             const password = form.elements["password"].value;
-            createProduct(name, password);
+            const confirmPassword = form.elements["confirmPassword"].value;
+            createUser(name, password, confirmPassword);
         });
-        
+
         // настройки отображения
         function checkFunc() {
             var label2 = document.getElementById('label2');
@@ -107,10 +111,17 @@
             }
 
             var registerbtn = document.getElementById('registerbtn');
-            if (registerbtn.textContent === "SIGN IN") {
-                registerbtn.textContent = "SIGN UP";
+            if (registerbtn.style.display === "none") {
+                registerbtn.style.display = "block";
             } else {
-                registerbtn.textContent = "SIGN IN";
+                registerbtn.style.display = "none";
+            }
+
+            var loginbtn = document.getElementById('loginbtn');
+            if (loginbtn.style.display === "block") {
+                loginbtn.style.display = "none";
+            } else {
+                loginbtn.style.display = "block";
             }
         }
     </script>
