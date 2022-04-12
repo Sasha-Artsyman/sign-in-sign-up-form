@@ -51,7 +51,23 @@ hr {
     display: block;
 }
 
-    .registerbtn:hover {
+.loginbtn {
+    background-color: #43c9a8;
+    color: white;
+    padding: 14px 14px;
+    border: none;
+    cursor: pointer;
+    width: 40%;
+    opacity: 0.6;
+    border-radius: 16px;
+    margin-top: 24px;
+    margin-right: auto;
+    margin-bottom: 0px;
+    margin-left: auto;
+    display: none;
+}
+
+    .registerbtn:hover, .loginbtn:hover {
         opacity: 1;
     }
 
