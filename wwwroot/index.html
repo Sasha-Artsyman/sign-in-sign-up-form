@@ -58,9 +58,9 @@
                     })
                 });
                 if (response.ok === true) {
-                    const product = await response.json();
+                    const user = await response.json();
                     reset();
-                    document.querySelector("tbody").append(row(product));
+                    document.querySelector("tbody").append(row(user));
                 }
                 else {
                     const error = await response.json();
