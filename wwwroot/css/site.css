@@ -86,10 +86,6 @@ p {
     text-align: center;
 }
 
-h1 {
-    color: #a1a1a1;
-}
-
 #label0 {
     color: #a1a1a1;
 }
@@ -131,22 +127,26 @@ h1 {
     }
 
 .checkbox-sign {
-    display: inline-block;
     height: 56px;
     line-height: 56px;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
     position: relative;
     vertical-align: middle;
     font-size: 24px;
     user-select: none;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
 }
 
     .checkbox-sign .checkbox-sign-switch {
-        display: inline-block;
         height: 56px;
         width: 240px;
         box-sizing: border-box;
         position: relative;
+        margin-right: auto;
+        margin-left: auto;
+        display: block;
     }
 
         .checkbox-sign .checkbox-sign-switch:before {
@@ -215,6 +215,7 @@ h1 {
     .checkbox-sign input[type=checkbox]:disabled + .checkbox-sign-switch {
         opacity: 0.6;
         filter: grayscale(50%);
+        display: none;
     }
 
     /* Focus */
