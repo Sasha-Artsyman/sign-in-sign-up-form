@@ -69,6 +69,27 @@
             }
         }
 
+        async function checkUser(userName, userPassword) {
+            const response = await fetch("api/products", {
+                method: "PUT",
+                headers: { "Accept": "application/json", "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    id: productId,
+                    name: userName,
+                    password: userPassword
+                })
+            });
+            if (response.ok === true) {
+                const user = await response.json();
+                reset();
+                //document.querySelector("tr[data-rowid='" + user.id + "']").replaceWith(row(user));
+            }
+            else {
+                const error = await response.json();
+                console.log(error.message);
+            }
+        }
+
         // сброс данных формы после отправки
         function reset() {
             const form = document.forms["SignInSignUpForm"];
@@ -91,7 +112,10 @@
             const name = form.elements["name"].value;
             const password = form.elements["password"].value;
             const confirmPassword = form.elements["confirmPassword"].value;
-            createUser(name, password, confirmPassword);
+            if (id == 0)
+                createUser(name, password, confirmPassword);
+            else
+                checkUser(name, password);
         });
 
         // настройки отображения
