@@ -27,6 +27,16 @@ app.MapPost("/api/users", (Registered user) => {
     return user;
 });
 
+// регистрация
+app.MapPost("/api/users", (Registered user) => {
+
+    // устанавливаем id для нового
+    user.Id = Guid.NewGuid().ToString();
+    // добавляем в список
+    users.Add(user);
+    return user;
+});
+
 app.Run();
 
 public class Registered
