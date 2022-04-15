@@ -37,6 +37,16 @@ app.MapPost("/api/users", (Registered user) => {
     return user;
 });
 
+app.MapPut("/api/users", (Registered usertData) => {
+
+    var user = users.FirstOrDefault(p => p.Id == usertData.Id);
+    if (user == null) return Results.NotFound(new { message = "User not found!" });
+
+    user.Name = usertData.Name;
+    user.Password = usertData.Password;
+    return Results.Json(user);
+});
+
 app.Run();
 
 public class Registered
