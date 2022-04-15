@@ -59,6 +59,26 @@
             }
         }
         
+        // получение одного 
+        async function geUser(id) {
+            const response = await fetch("/api/users/" + id, {
+                method: "GET",
+                headers: { "Accept": "application/json" }
+            });
+            if (response.ok === true) {
+                const user = await response.json();
+                const form = document.forms["SignInSignUpForm"];
+                form.elements["id"].value = product.id;
+                form.elements["name"].value = product.name;
+                form.elements["password"].value = product.password;
+            }
+            else {
+                // если произошла ошибка, получаем сообщение об ошибке
+                const error = await response.json();
+                console.log(error.message); // и выводим его на консоль
+            }
+        }
+        
         // добавление
         async function createUser(userName, userPassword, userConfirmPassword) {
 
