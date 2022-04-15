@@ -68,9 +68,9 @@
             if (response.ok === true) {
                 const user = await response.json();
                 const form = document.forms["SignInSignUpForm"];
-                form.elements["id"].value = product.id;
-                form.elements["name"].value = product.name;
-                form.elements["password"].value = product.password;
+                form.elements["id"].value = user.id;
+                form.elements["name"].value = user.name;
+                form.elements["password"].value = user.password;
             }
             else {
                 // если произошла ошибка, получаем сообщение об ошибке
@@ -104,11 +104,11 @@
         }
 
         async function checkUser(userName, userPassword) {
-            const response = await fetch("api/products", {
+            const response = await fetch("api/users", {
                 method: "PUT",
                 headers: { "Accept": "application/json", "Content-Type": "application/json" },
                 body: JSON.stringify({
-                    id: productId,
+                    id: userId,
                     name: userName,
                     password: userPassword
                 })
