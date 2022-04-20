@@ -146,7 +146,7 @@
             const name = form.elements["name"].value;
             const password = form.elements["password"].value;
             const confirmPassword = form.elements["confirmPassword"].value;
-            if (id == 0)
+            if (confirmPassword != "")
                 createUser(name, password, confirmPassword);
             else
                 checkUser(name, password);
