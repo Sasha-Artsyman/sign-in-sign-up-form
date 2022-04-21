@@ -1,3 +1,4 @@
+// начальные данные
 List<Registered> users = new List<Registered>
 {
     new() { Id = Guid.NewGuid().ToString(), Name = "Admin", Password = "12345678" },
@@ -12,19 +13,15 @@ app.UseStaticFiles();
 
 app.MapGet("/api/users", () => users);
 
-app.MapGet("/api/users/{id}", (string id) =>
+app.MapGet("/api/users/{id}", (string name) =>
 {
-    Registered? user = users.FirstOrDefault(u => u.Id == id);
+    // получаем по name
+    Registered? user = users.FirstOrDefault(u => u.Name == name);
+    // если не найден, отправляем статусный код и сообщение об ошибке
     if (user == null) return Results.NotFound(new { message = "User not found!" });
 
+    // если найден, отправляем его
     return Results.Json(user);
-});
-
-app.MapPost("/api/users", (Registered user) => {
-
-    user.Id = Guid.NewGuid().ToString();
-    users.Add(user);
-    return user;
 });
 
 // регистрация
@@ -39,7 +36,7 @@ app.MapPost("/api/users", (Registered user) => {
 
 app.MapPut("/api/users", (Registered usertData) => {
 
-    var user = users.FirstOrDefault(p => p.Id == usertData.Id);
+    var user = users.FirstOrDefault(p => p.Name == usertData.Name);
     if (user == null) return Results.NotFound(new { message = "User not found!" });
 
     user.Name = usertData.Name;
