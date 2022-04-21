@@ -58,10 +58,10 @@
                 const users = await response.json();
             }
         }
-        
+
         // получение одного 
-        async function geUser(id) {
-            const response = await fetch("/api/users/" + id, {
+        async function getUser(name) {
+            const response = await fetch("/api/users/" + name, {
                 method: "GET",
                 headers: { "Accept": "application/json" }
             });
@@ -78,7 +78,7 @@
                 console.log(error.message); // и выводим его на консоль
             }
         }
-        
+
         // добавление
         async function createUser(userName, userPassword, userConfirmPassword) {
 
@@ -101,14 +101,17 @@
                     console.log(error.message);
                 }
             }
+            else {
+                console.log("!!!");
+            }
         }
 
+        // вход
         async function checkUser(userName, userPassword) {
             const response = await fetch("api/users", {
                 method: "PUT",
                 headers: { "Accept": "application/json", "Content-Type": "application/json" },
                 body: JSON.stringify({
-                    id: userId,
                     name: userName,
                     password: userPassword
                 })
@@ -116,7 +119,7 @@
             if (response.ok === true) {
                 const user = await response.json();
                 reset();
-                //document.querySelector("tr[data-rowid='" + user.id + "']").replaceWith(row(user));
+                document.querySelector("tr[data-rowid='" + user.name + "']").replaceWith(row(user));
             }
             else {
                 const error = await response.json();
@@ -146,7 +149,7 @@
             const name = form.elements["name"].value;
             const password = form.elements["password"].value;
             const confirmPassword = form.elements["confirmPassword"].value;
-             
+
             var loginbtn = document.getElementById('loginbtn');
             if (loginbtn.style.display = "none")
                 createUser(name, password, confirmPassword);
