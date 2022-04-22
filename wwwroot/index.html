@@ -70,8 +70,8 @@
         }
 
         // получение одного
-        async function getUser(name) {
-            const response = await fetch("/api/users/" + name, {
+        async function getUser(id) {
+            const response = await fetch("/api/users/" + id, {
                 method: "GET",
                 headers: { "Accept": "application/json" }
             });
@@ -164,11 +164,6 @@
             const commentTd = document.createElement("td");
             commentTd.append(user.password);
             tr.append(passwordTd);
-
-            const linksTd = document.createElement("td");
-
-            linksTd.append(removeLink);
-            tr.appendChild(linksTd);
 
             return tr;
         }
