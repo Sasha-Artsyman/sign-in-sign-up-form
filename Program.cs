@@ -2,7 +2,7 @@
 List<Registered> users = new List<Registered>
 {
     new() { Id = Guid.NewGuid().ToString(), Name = "Admin", Password = "12345678" },
-    new() { Id = Guid.NewGuid().ToString(), Name = "Guest", Password = "1111" },
+    new() { Id = Guid.NewGuid().ToString(), Name = "Guest", Password = "1111" }
 };
 
 var builder = WebApplication.CreateBuilder();
@@ -34,13 +34,13 @@ app.MapPost("/api/users", (Registered user) => {
     return user;
 });
 
-app.MapPut("/api/users", (Registered usertData) => {
+app.MapPut("/api/users", (Registered userData) => {
 
-    var user = users.FirstOrDefault(p => p.Id == usertData.Id);
+    var user = users.FirstOrDefault(u => u.Id == userData.Id);
     if (user == null) return Results.NotFound(new { message = "User not found!" });
 
-    user.Name = usertData.Name;
-    user.Password = usertData.Password;
+    user.Name = userData.Name;
+    user.Password = userData.Password;
     return Results.Json(user);
 });
 
