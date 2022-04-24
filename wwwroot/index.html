@@ -9,6 +9,7 @@
 </head>
 <body>
     <form name="SignInSignUpForm">
+        <input type="hidden" name="id" value="0" />
         <div class="container">
 
             <div class="exitButton">
@@ -92,7 +93,7 @@
         // добавление
         async function createUser(userName, userPassword, userConfirmPassword) {
 
-            if (userPassword == userConfirmPassword) {
+            //if (userPassword == userConfirmPassword) {
                 const response = await fetch("api/users", {
                     method: "POST",
                     headers: { "Accept": "application/json", "Content-Type": "application/json" },
@@ -110,10 +111,10 @@
                     const error = await response.json();
                     console.log(error.message);
                 }
-            }
-            else {
-                console.log("!!!");
-            }
+            //}
+            //else {
+            //    console.log("!!!");
+            //}
         }
 
         // вход
@@ -143,13 +144,6 @@
             form.reset();
             form.elements["id"].value = 0;
         }
-
-        // сброс значений формы
-        document.getElementById("reset").addEventListener("click", e => {
-
-            e.preventDefault();
-            reset();
-        })
 
         // создание строки для таблицы
         function row(user) {
@@ -184,10 +178,7 @@
                 checkUser(name, password);
         });
 
-        // загрузка списка
-        getUsers();
-
-        // настройки отображения
+       // настройки отображения
         function checkFunc() {
             var label2 = document.getElementById('label2');
             if (label2.style.display === "none") {
@@ -217,6 +208,10 @@
                 loginbtn.style.display = "block";
             }
         }
+
+        // загрузка списка
+        getUsers();
+
     </script>
 </body>
 </html>
