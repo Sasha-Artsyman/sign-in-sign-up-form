@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="css/site.css" type="text/css">
 </head>
 <body>
-    <form name="SignInSignUpForm">
-        <input type="hidden" name="id" value="0" />
+    <form name="signInSignUpForm">
         <div class="container">
 
             <div class="exitButton">
@@ -23,19 +22,21 @@
                 </label>
             </div>
 
+            <input type="hidden" name="id" value="0" />
+
             <div id="label0">
                 <label for="name"><b>USERNAME</b></label>
-                <input type="text" placeholder="Enter username..." name="name" required>
+                <input class="form-control" type="text" placeholder="Enter username..." name="name" required>
             </div>
 
             <div id="label1">
                 <label for="password"><b>PASSWORD</b></label>
-                <input type="password" placeholder="Enter password..." name="password" required>
+                <input class="form-control" type="password" placeholder="Enter password..." name="password" required>
             </div>
 
             <div id="label2">
                 <label for="confirmPassword"><b>PASSWORD</b></label>
-                <input type="password" placeholder="Confirm password..." name="confirmPassword" required>
+                <input class="form-control" type="password" placeholder="Confirm password..." name="confirmPassword" required>
             </div>
 
             <div id="termsPrivacy">
@@ -78,7 +79,7 @@
             });
             if (response.ok === true) {
                 const user = await response.json();
-                const form = document.forms["SignInSignUpForm"];
+                const form = document.forms["signInSignUpForm"];
                 form.elements["id"].value = user.id;
                 form.elements["name"].value = user.name;
                 form.elements["password"].value = user.password;
@@ -140,7 +141,7 @@
 
         // сброс данных формы после отправки
         function reset() {
-            const form = document.forms["SignInSignUpForm"];
+            const form = document.forms["signInSignUpForm"];
             form.reset();
             form.elements["id"].value = 0;
         }
@@ -163,9 +164,9 @@
         }
 
         // отправка формы
-        document.forms["SignInSignUpForm"].addEventListener("submit", e => {
+        document.forms["signInSignUpForm"].addEventListener("submit", e => {
             e.preventDefault();
-            const form = document.forms["SignInSignUpForm"];
+            const form = document.forms["signInSignUpForm"];
             const id = form.elements["id"].value;
             const name = form.elements["name"].value;
             const password = form.elements["password"].value;
