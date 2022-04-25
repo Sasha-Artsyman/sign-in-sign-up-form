@@ -15,7 +15,7 @@ app.MapGet("/api/users", () => users);
 
 app.MapGet("/api/users/{id}", (string id) =>
 {
-    // получаем по name
+    // получаем по id
     Registered? user = users.FirstOrDefault(u => u.Id == id);
     // если не найден, отправляем статусный код и сообщение об ошибке
     if (user == null) return Results.NotFound(new { message = "User not found!" });
@@ -36,7 +36,7 @@ app.MapPost("/api/users", (Registered user) => {
 
 app.MapPut("/api/users", (Registered userData) => {
 
-    var user = users.FirstOrDefault(u => u.Id == userData.Id);
+    var user = users.FirstOrDefault(u => u.Name == userData.Name);
     if (user == null) return Results.NotFound(new { message = "User not found!" });
 
     user.Name = userData.Name;
