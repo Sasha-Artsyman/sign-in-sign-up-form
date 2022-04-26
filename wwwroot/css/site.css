@@ -105,10 +105,10 @@ p {
 .exitButton {
     position: absolute;
     border-radius: 24px;
-    padding: 0px 15px;
+    padding: 0px 16px;
     background-color: #43c9a8;
-    top: -3%;
-    left: 95%;
+    top: -4%;
+    left: 94%;
     position: absolute;
     box-shadow: 0 0 12px #ddd;
     opacity: 0.6;
@@ -125,6 +125,54 @@ p {
         margin-top: 10px;
         margin-bottom: 10px;
     }
+
+#successfully {
+    text-align: center;
+    background-color: #8edfcb;
+    width: 48%;
+    border-radius: 24px;
+    margin-top: 12px;
+    margin-right: auto;
+    margin-bottom: 12px;
+    margin-left: auto;
+    display: block;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+    #successfully a {
+        font-size: 16px;
+        color: white;
+        vertical-align: middle;
+    }
+
+#successfullyImg {
+    width: 24px;
+}
+
+#failure {
+    text-align: center;
+    background-color: #df8e8e;
+    width: 48%;
+    border-radius: 24px;
+    margin-top: 12px;
+    margin-right: auto;
+    margin-bottom: 12px;
+    margin-left: auto;
+    display: block;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+    #failure a {
+        font-size: 16px;
+        color: white;
+        vertical-align: middle;
+    }
+
+#failureImg {
+    width: 24px;
+}
 
 .checkbox-sign {
     height: 56px;
