@@ -10,7 +10,7 @@
     border-radius: 32px;
     box-shadow: 0 0 12px #ddd;
     position: fixed;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -126,52 +126,50 @@ p {
         margin-bottom: 10px;
     }
 
-#successfully {
+#response {
+    height: auto;
+    width: 400px;
+    position: fixed;
+    top: 75%;
+    left: 30%;
+}
+
+#successfully, #failure, #nameTaken {
     text-align: center;
-    background-color: #8edfcb;
     width: 48%;
     border-radius: 24px;
     margin-top: 12px;
     margin-right: auto;
     margin-bottom: 12px;
     margin-left: auto;
-    display: block;
     padding-top: 6px;
     padding-bottom: 6px;
 }
 
-    #successfully a {
-        font-size: 16px;
-        color: white;
-        vertical-align: middle;
-    }
-
-#successfullyImg {
-    width: 24px;
+#successfully {
+    background-color: #8edfcb;
+    display: block;
 }
 
 #failure {
-    text-align: center;
     background-color: #df8e8e;
-    width: 48%;
-    border-radius: 24px;
-    margin-top: 12px;
-    margin-right: auto;
-    margin-bottom: 12px;
-    margin-left: auto;
     display: block;
-    padding-top: 6px;
-    padding-bottom: 6px;
 }
 
-    #failure a {
-        font-size: 16px;
-        color: white;
-        vertical-align: middle;
-    }
+#nameTaken {
+    background-color: #dfd08e;
+    display: block;
+}
 
-#failureImg {
-    width: 24px;
+#successfullyImg, #failureImg, #nameTakenImg {
+    width: 22px;
+}
+
+#successfully a, #failure a, #nameTaken a {
+    font-size: 16px;
+    color: white;
+    vertical-align: middle;
+    padding-left: 4px;
 }
 
 .checkbox-sign {
@@ -240,16 +238,16 @@ p {
         opacity: 0;
     }
 
-            .checkbox-sign input[type="checkbox"]:checked + .checkbox-sign-switch:before {
-                content: attr(data-label-off);
-                left: 0;
-            }
+        .checkbox-sign input[type="checkbox"]:checked + .checkbox-sign-switch:before {
+            content: attr(data-label-off);
+            left: 0;
+        }
 
-            .checkbox-sign input[type="checkbox"]:checked + .checkbox-sign-switch:after {
-                content: attr(data-label-on);
-                color: #43c9a8;
-                transform: translate3d(120px, 0, 0);
-            }
+        .checkbox-sign input[type="checkbox"]:checked + .checkbox-sign-switch:after {
+            content: attr(data-label-on);
+            color: #43c9a8;
+            transform: translate3d(120px, 0, 0);
+        }
 
         .checkbox-sign input[type="checkbox"]:not(:disabled) + .checkbox-sign-switch:hover {
             cursor: pointer;
