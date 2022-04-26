@@ -36,7 +36,7 @@ app.MapPost("/api/users", (Registered user) => {
 
 app.MapPut("/api/users", (Registered userData) => {
 
-    var user = users.FirstOrDefault(u => u.Name == userData.Name);
+    var user = users.FirstOrDefault(u => u.Name == userData.Name && u.Password == userData.Password);
     if (user == null) return Results.NotFound(new { message = "User not found!" });
 
     user.Name = userData.Name;
