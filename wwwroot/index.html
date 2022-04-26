@@ -36,7 +36,7 @@
 
             <div id="label2">
                 <label for="confirmPassword"><b>PASSWORD</b></label>
-                <input class="form-control" type="password" placeholder="Confirm password..." name="confirmPassword" required />
+                <input class="form-control" type="password" placeholder="Confirm password..." name="confirmPassword" />
             </div>
 
             <div id="termsPrivacy">
@@ -49,12 +49,7 @@
             <button id="loginbtn" type="submit" class="loginbtn">SIGN UP</button>
         </div>
     </form>
-    <table class="table table-condensed table-striped table-bordered">
-        <thead><tr><th>Name</th><th>Password</th></tr></thead>
-        <tbody>
-        </tbody>
-    </table>
-
+    
     <script>
         // получение всех
         async function getUsers() {
@@ -97,26 +92,25 @@
         async function createUser(userName, userPassword, userConfirmPassword) {
 
             if (userPassword == userConfirmPassword) {
-            const response = await fetch("api/users", {
-                method: "POST",
-                headers: { "Accept": "application/json", "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    name: userName,
-                    password: userPassword
-                })
-            });
-            if (response.ok === true) {
-                const user = await response.json();
-                reset();
-                document.querySelector("tbody").append(row(user));
+                const response = await fetch("api/users", {
+                    method: "POST",
+                    headers: { "Accept": "application/json", "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        name: userName,
+                        password: userPassword
+                    })
+                });
+                if (response.ok === true) {
+                    const user = await response.json();
+                    reset();
+                }
+                else {
+                    const error = await response.json();
+                    console.log(error.message);
+                }
             }
             else {
-                const error = await response.json();
-                console.log(error.message);
-            }
-            }
-            else {
-               //
+                //
             }
         }
 
@@ -143,25 +137,10 @@
         // сброс данных формы после отправки
         function reset() {
             const form = document.forms["signInSignUpForm"];
-            form.reset();
             form.elements["id"].value = 0;
-        }
-
-        // создание строки для таблицы
-        function row(user) {
-
-            const tr = document.createElement("tr");
-            tr.setAttribute("data-rowid", user.id);
-
-            const nameTd = document.createElement("td");
-            nameTd.append(user.name);
-            tr.append(nameTd);
-
-            const passwordTd = document.createElement("td");
-            passwordTd.append(user.password);
-            tr.append(passwordTd);
-
-            return tr;
+            form.elements["name"].value = "";
+            form.elements["password"].value = "";
+            form.elements["confirmPassword"].value = "";
         }
 
         // сброс значений формы
