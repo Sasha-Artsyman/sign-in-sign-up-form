@@ -9,6 +9,7 @@
 </head>
 <body>
     <form name="signInSignUpForm">
+
         <div class="container">
 
             <div class="exitButton">
@@ -43,16 +44,18 @@
                 <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
             </div>
 
-            <div id="response">
-                <p id="successfully"><img id="successfullyImg" src="img/correct-symbol.png"><a><b>     Successfully!</b></a></p>
-                <p id="failure"><img id="failureImg" src="img/padlock.png"><a><b>     Failure!</b></a></p>
-            </div>
-
             <a id="reset"></a>
 
             <button id="registerbtn" type="submit" class="registerbtn">SIGN IN</button>
             <button id="loginbtn" type="submit" class="loginbtn">SIGN UP</button>
         </div>
+
+        <div id="response">
+            <p id="successfully"><img id="successfullyImg" src="img/correct-symbol.png"><a><b>Successfully!</b></a></p>
+            <p id="nameTaken"><img id="nameTakenImg" src="img/user.png"><a><b>Name taken!</b></a></p>
+            <p id="failure"><img id="failureImg" src="img/padlock.png"><a><b>Failure!</b></a></p>
+        </div>
+
     </form>
 
     <script>
@@ -199,6 +202,8 @@
                 loginbtn.style.display = "block";
             }
         }
+
+        // настройки отображения ответа
 
         // загрузка списка
         getUsers();
