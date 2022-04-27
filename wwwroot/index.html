@@ -110,11 +110,13 @@
                 });
                 if (response.ok === true) {
                     const user = await response.json();
+                    checkResponse(1);
                     reset();
                 }
                 else {
                     const error = await response.json();
                     console.log(error.message);
+                    checkResponse(0);
                 }
             }
             else {
@@ -135,10 +137,12 @@
             if (response.ok === true) {
                 const user = await response.json();
                 reset();
+                checkResponse(1);
             }
             else {
                 const error = await response.json();
                 console.log(error.message);
+                checkResponse(0);
             }
         }
 
@@ -204,6 +208,22 @@
         }
 
         // настройки отображения ответа
+        function checkResponse(response) {
+            var successfully = document.getElementById('successfully');
+            if (response === 1) {
+                successfully.style.display = "block";
+            }
+
+            var nameTaken = document.getElementById('nameTaken');
+            if (response === 2) {
+                nameTaken.style.display = "block";
+            }
+
+            var failure = document.getElementById('failure');
+            if (response === 0) {
+                failure.style.display = "block";
+            }
+        }
 
         // загрузка списка
         getUsers();
