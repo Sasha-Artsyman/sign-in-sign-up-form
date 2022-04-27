@@ -34,6 +34,7 @@ app.MapPost("/api/users", (Registered user) => {
     return user;
 });
 
+// вход
 app.MapPut("/api/users", (Registered userData) => {
 
     var user = users.FirstOrDefault(u => u.Name == userData.Name && u.Password == userData.Password);
