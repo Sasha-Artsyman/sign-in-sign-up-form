@@ -131,12 +131,13 @@ p {
     width: 400px;
     position: fixed;
     top: 75%;
-    left: 30%;
+    left: 50%;
+    transform: translate(-50%, 0%);
 }
 
 #successfully, #failure, #nameTaken {
     text-align: center;
-    width: 48%;
+    width: 40%;
     border-radius: 24px;
     margin-top: 12px;
     margin-right: auto;
@@ -144,21 +145,22 @@ p {
     margin-left: auto;
     padding-top: 6px;
     padding-bottom: 6px;
+    box-shadow: 0 0 12px #ddd;
 }
 
 #successfully {
     background-color: #8edfcb;
-    display: block;
+    display: none;
 }
 
 #failure {
     background-color: #df8e8e;
-    display: block;
+    display: none;
 }
 
 #nameTaken {
     background-color: #dfd08e;
-    display: block;
+    display: none;
 }
 
 #successfullyImg, #failureImg, #nameTakenImg {
