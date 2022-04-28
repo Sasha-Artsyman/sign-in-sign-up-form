@@ -120,7 +120,7 @@
                 }
             }
             else {
-                //
+                checkResponse(0);
             }
         }
 
@@ -212,15 +212,21 @@
             var successfully = document.getElementById('successfully');
             if (response === 1) {
                 successfully.style.display = "block";
+                nameTaken.style.display = "none";
+                failure.style.display = "none";
             }
 
             var nameTaken = document.getElementById('nameTaken');
             if (response === 2) {
+                successfully.style.display = "none";
                 nameTaken.style.display = "block";
+                failure.style.display = "none";
             }
 
             var failure = document.getElementById('failure');
             if (response === 0) {
+                successfully.style.display = "none";
+                nameTaken.style.display = "none";
                 failure.style.display = "block";
             }
         }
