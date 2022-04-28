@@ -132,7 +132,7 @@ p {
 
 #response {
     height: auto;
-    width: 400px;
+    width: 100%;
     position: fixed;
     top: 75%;
     left: 50%;
@@ -143,67 +143,41 @@ p {
     text-align: center;
     width: 40%;
     border-radius: 24px;
-    margin-top: 12px;
+    margin-top: 20%;
     margin-right: auto;
     margin-bottom: 12px;
     margin-left: auto;
     padding-top: 6px;
     padding-bottom: 6px;
     box-shadow: 0 0 12px #ddd;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-name: slidein;
+    -webkit-animation-iteration-count: 2;
+    -webkit-animation-direction: alternate;
 }
 
 #successfully {
-    background-color: #8edfcb;
     display: none;
-    -webkit-animation: pulsing 2s;
-    animation: pulsing 2s;
+    background-color: #8edfcb;
 }
 
 #failure {
     background-color: #df8e8e;
     display: none;
-    -webkit-animation: pulsing 2s;
-    animation: pulsing 2s;
 }
 
 #nameTaken {
     background-color: #dfd08e;
     display: none;
-    -webkit-animation: pulsing 2s;
-    animation: pulsing 2s;
 }
 
-@-webkit-keyframes pulsing {
-    0% {
-        -webkit-transform: scale(0.5, 0.5);
-        transform: scale(0.5, 0.5)
+@keyframes slidein {
+    from {
+        margin-top: 20%;
     }
 
-    50% {
-        -webkit-transform: scale(1.0, 1.0);
-        transform: scale(1.0, 1.0);
-    }
-
-    100% {
-        -webkit-transform: scale(0.5, 0.5);
-        transform: scale(0.5, 0.5);
-    }
-}
-
-@keyframes pulsing {
-    0% {
-        -webkit-transform: scale(0.5, 0.5);
-        transform: scale(0.5, 0.5)
-    }
-
-    50% {
-        -webkit-transform: scale(1.0, 1.0);
-        transform: scale(1.0, 1.0);
-    }
-
-    100% {
-        -webkit-transform: scale(0.5, 0.5);
-        transform: scale(0.5, 0.5);
+    to {
+        margin-top: 4%;
     }
 }
 
