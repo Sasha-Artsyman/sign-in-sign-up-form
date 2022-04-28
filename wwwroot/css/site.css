@@ -141,7 +141,7 @@ p {
 
 #successfully, #failure, #nameTaken {
     text-align: center;
-    width: 40%;
+    width: 140px;
     border-radius: 24px;
     margin-top: 20%;
     margin-right: auto;
