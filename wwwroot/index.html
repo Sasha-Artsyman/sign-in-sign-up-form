@@ -77,8 +77,8 @@
         }
 
         // получение одного
-        async function getUser(id) {
-            const response = await fetch("/api/users/" + id, {
+        async function getUser(name) {
+            const response = await fetch("/api/users/" + name, {
                 method: "GET",
                 headers: { "Accept": "application/json" }
             });
