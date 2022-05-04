@@ -13,9 +13,9 @@ app.UseStaticFiles();
 
 app.MapGet("/api/users", () => users);
 
-app.MapGet("/api/users/{id}", (string name) =>
+app.MapGet("/api/users/{name}", (string name) =>
 {
-    // получаем по id
+    // получаем по name
     Registered? user = users.FirstOrDefault(u => u.Name == name);
     // если не найден, отправляем статусный код и сообщение об ошибке
     if (user == null) return Results.NotFound(new { message = "User not found!" });
