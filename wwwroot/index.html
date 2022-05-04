@@ -99,28 +99,38 @@
         // добавление
         async function createUser(userName, userPassword, userConfirmPassword) {
 
-            if (userPassword == userConfirmPassword) {
-                const response = await fetch("api/users", {
-                    method: "POST",
-                    headers: { "Accept": "application/json", "Content-Type": "application/json" },
-                    body: JSON.stringify({
-                        name: userName,
-                        password: userPassword
-                    })
-                });
-                if (response.ok === true) {
-                    const user = await response.json();
-                    checkResponse(1);
-                    reset();
-                }
-                else {
-                    const error = await response.json();
-                    console.log(error.message);
-                    checkResponse(0);
-                }
+            const response = await fetch("/api/users", {
+                method: "GET",
+                headers: { "Accept": "application/json" }
+            });
+            // если запрос прошел нормально
+            if (response.ok === true) {
+                checkResponse(2);
             }
             else {
-                checkResponse(0);
+                if (userPassword == userConfirmPassword) {
+                    const response = await fetch("api/users", {
+                        method: "POST",
+                        headers: { "Accept": "application/json", "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                            name: userName,
+                            password: userPassword
+                        })
+                    });
+                    if (response.ok === true) {
+                        const user = await response.json();
+                        checkResponse(1);
+                        reset();
+                    }
+                    else {
+                        const error = await response.json();
+                        console.log(error.message);
+                        checkResponse(0);
+                    }
+                }
+                else {
+                    checkResponse(0);
+                }
             }
         }
 
