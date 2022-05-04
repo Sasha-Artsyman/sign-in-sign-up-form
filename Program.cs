@@ -13,10 +13,10 @@ app.UseStaticFiles();
 
 app.MapGet("/api/users", () => users);
 
-app.MapGet("/api/users/{id}", (string id) =>
+app.MapGet("/api/users/{id}", (string name) =>
 {
     // получаем по id
-    Registered? user = users.FirstOrDefault(u => u.Id == id);
+    Registered? user = users.FirstOrDefault(u => u.Name == name);
     // если не найден, отправляем статусный код и сообщение об ошибке
     if (user == null) return Results.NotFound(new { message = "User not found!" });
 
